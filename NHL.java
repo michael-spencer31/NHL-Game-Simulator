@@ -35,10 +35,22 @@ public class NHL{
 		{"Justin Holl", "D", 82, 2}, {"Rasmus Sandin", "D", 83, 3},
 		{"Timothy Liljegren", "D", 73, 3}, {"Erik Kallgren", "G", 77, 1} };
 
+		Object[][] calgaryPlayers = { {"Adam Ruzicka", "F", 84, 1},
+		{"Elias Lindholm", "F", 88, 1}, {"Tyler Toffoli", "F", 89, 1},
+		{"Milan Lucic", "F", 83, 2}, {"Nazem Kadri", "F", 84, 2},
+		{"Andrew Mangiapane", "F", 85, 2}, {"Jonathan Huberdeau", "F", 93, 3},
+		{"Mikael Backlund", "F", 83, 3}, {"Trevor Lewis", "F", 83, 3},
+		{"Blake Coleman", "F", 81, 4}, {"Dillon Dube", "F", 80, 4},
+		{"Brett Ritchie", "F", 77, 4}, {"Noah Hanifin", "D", 85, 1},
+		{"Rasmus Andersson", "D", 83, 1}, {"Mackenzie Weegar", "D", 84, 2},
+		{"Chris Tanev", "D", 82, 2}, {"Nikita Zadorov", "D", 80, 3},
+		{"Nick Desimone", "D", 71, 3}, {"Jacob Markstrom", "G", 90, 1} };
+		
 		//create a couple of teams 
 		Team MontrealCanadiens = new Team("Montreal Canadiens", montrealPlayers);
 		Team EdmontonOilers = new Team("Edmonton Oilers", edmontonPlayers);
 		Team TorontoMapleLeafs = new Team("Toronto Maple Leafs", torontoPlayers);
+		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers);
 
 		Game game = new Game();
 		game.playGame(MontrealCanadiens, TorontoMapleLeafs);

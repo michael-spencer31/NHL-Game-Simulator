@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Team{
 	private final String name;
-	private Object[][] players;
+	public Object[][] players;
 
 	public Team(String name, Object[][] players){
 		this.name = name;
