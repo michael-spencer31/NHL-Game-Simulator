@@ -53,6 +53,6 @@ public class NHL{
 		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers);
 
 		Game game = new Game();
-		game.playGame(MontrealCanadiens, TorontoMapleLeafs);
+		game.playGame(MontrealCanadiens, EdmontonOilers);
 	}
 }

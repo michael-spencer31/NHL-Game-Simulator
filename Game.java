@@ -1,8 +1,13 @@
 import java.util.*;
 import java.lang.Math.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.io.File;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Game{
+
+	public static HashMap<Object, Integer> playerGoals = new HashMap<Object, Integer>();
 
 	public void playGame(Team t1, Team t2){
 
@@ -11,10 +16,26 @@ public class Game{
 		var teamOneGoals = 0;
 		var teamTwoGoals = 0;
 
-		if(advantageTeam == 1){
+		ArrayList teamOneNumbers = new ArrayList();
+		ArrayList teamTwoNumbers = new ArrayList();
 
+		advantageTeam = 1;
+
+		//if the two teams are even
+		if(advantageTeam == 1){
+			teamOneNumbers.add(1);
+			teamOneNumbers.add(2);
+			teamOneNumbers.add(3);
+			teamOneNumbers.add(4);
+			teamOneNumbers.add(5);
+			teamTwoNumbers.add(6);
+			teamTwoNumbers.add(7);
+			teamTwoNumbers.add(8);
+			teamTwoNumbers.add(9);
+			teamTwoNumbers.add(10);
 		}
 
+				System.out.println(teamOneNumbers);
 		//generate a random number from 1-10
 		int goalGenerator = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 		//generate a random number to determine who scored
@@ -22,6 +43,7 @@ public class Game{
 		//generate a team to score
 		int scoringTeam = ThreadLocalRandom.current().nextInt(0, 1 + 1);
 
+		//in each game there are 10 chances for a team to score a goal
 		for(int i = 0; i < 10; i++){
 
 			if(goalGenerator > 6){
@@ -78,15 +100,24 @@ public class Game{
 			scoringPlayer = ThreadLocalRandom.current().nextInt(0, 10 + 1);
 		}
 		int otWinner = ThreadLocalRandom.current().nextInt(0, 1 + 1);
-
+		int otPlayer = ThreadLocalRandom.current().nextInt(0, 5 + 1);
+		//start overtime if teams are tied after main game loop
+		//in ot we just do a coin flip to determine who wins
 		if(teamOneGoals == teamTwoGoals){
-			//ot
+			
 			if(otWinner == 0){
 				teamOneGoals++;
+				getGoalScorer(t1, otPlayer);
+				System.out.println(t1.getName() + " beat the " + t2.getName() + " " + teamOneGoals + "-" + teamTwoGoals + " in overtime");
+				return;
 			}else{
 				teamTwoGoals++;
+				getGoalScorer(t2, otPlayer);
+				System.out.println(t2.getName() + " beat the " + t1.getName() + " " + teamTwoGoals + "-" + teamOneGoals + " in overtime");
+				return;
 			}
 		}
+		//otherwise the game ended in regulation time
 		if(teamOneGoals > teamTwoGoals){
 			System.out.println(t1.getName() + " beat the " + t2.getName() + " " + teamOneGoals + "-" + teamTwoGoals);
 		}else{
@@ -110,7 +141,12 @@ public class Game{
 			lineScorer = ThreadLocalRandom.current().nextInt(12, 17 + 1);
 		}
 		System.out.println(team.players[lineScorer][0]);
+
+		Object scorer = team.players[lineScorer][0];
+
+		updateScorers(scorer);
 	}
+	//this code tries to determine which team is stronger and gives them an advantage
 	public int getEdge(Team t1, Team t2){
 
 		//get the relative strength of each team
@@ -119,10 +155,27 @@ public class Game{
 
 		int relativeStrength = teamOneStrength - teamTwoStrength;
 
-		//team one is stronger
-		if(relativeStrength >= 0){
-			return 1;
+		//if relative strength is POSITIVE team one is stronger
+		//if relative strength is NEGATIVE team two is stronger
+		
+		//between -10 and +10: teams are equal - no buff for anyone
+		
+		//large buff for team 1
+		if(relativeStrength > 30){
+
+
 		}
+		//between -10 and -30 or +10 and +30 - small buff for team 1 or 2 
+		// > -30 or > +30: large buff for team 1 or 2
 		return 2;
+	}
+	//this function uses a hashmap to keep track of players who score goals
+	public void updateScorers(Object player){
+
+		//this checks if the key already exists in the hashmap; if 
+		//it does, add 1 to the key
+		playerGoals.merge(player, 1, Integer::sum);
+		
+		System.out.println(playerGoals);
 	}
 }
