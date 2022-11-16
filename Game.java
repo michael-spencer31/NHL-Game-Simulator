@@ -7,11 +7,10 @@ import java.util.ArrayList;
 
 public class Game{
 
+	//create a hashmap to keep track of player goals
 	public static HashMap<Object, Integer> playerGoals = new HashMap<Object, Integer>();
 
 	public void playGame(Team t1, Team t2){
-
-		int advantageTeam = getEdge(t1, t2);
 
 		var teamOneGoals = 0;
 		var teamTwoGoals = 0;
@@ -19,10 +18,10 @@ public class Game{
 		ArrayList teamOneNumbers = new ArrayList();
 		ArrayList teamTwoNumbers = new ArrayList();
 
-		advantageTeam = 1;
-
+		//advantageTeam = ThreadLocalRandom.current().nextInt(1, 1);
+		int advantageTeam = getEdge(t1, t2);
 		//if the two teams are even
-		if(advantageTeam == 1){
+		if(advantageTeam == 0){
 			teamOneNumbers.add(1);
 			teamOneNumbers.add(2);
 			teamOneNumbers.add(3);
@@ -33,24 +32,72 @@ public class Game{
 			teamTwoNumbers.add(8);
 			teamTwoNumbers.add(9);
 			teamTwoNumbers.add(10);
+		}else if(advantageTeam == 1){
+			teamOneNumbers.add(1);
+			teamOneNumbers.add(2);
+			teamOneNumbers.add(3);
+			teamOneNumbers.add(4);
+			teamOneNumbers.add(5);
+			teamOneNumbers.add(6);
+			teamTwoNumbers.add(7);
+			teamTwoNumbers.add(8);
+			teamTwoNumbers.add(9);
+			teamTwoNumbers.add(10);
+		}else if(advantageTeam == 2){
+			teamOneNumbers.add(1);
+			teamOneNumbers.add(2);
+			teamOneNumbers.add(3);
+			teamOneNumbers.add(4);
+			teamOneNumbers.add(5);
+			teamOneNumbers.add(6);
+			teamOneNumbers.add(7);
+			teamTwoNumbers.add(8);
+			teamTwoNumbers.add(9);
+			teamTwoNumbers.add(10);
+		}else if(advantageTeam == -1){
+			teamOneNumbers.add(1);
+			teamOneNumbers.add(2);
+			teamOneNumbers.add(3);
+			teamOneNumbers.add(4);
+			teamTwoNumbers.add(5);
+			teamTwoNumbers.add(6);
+			teamTwoNumbers.add(7);
+			teamTwoNumbers.add(8);
+			teamTwoNumbers.add(9);
+			teamTwoNumbers.add(10);
+		}else if(advantageTeam == -2){
+			teamOneNumbers.add(1);
+			teamOneNumbers.add(2);
+			teamOneNumbers.add(3);
+			teamTwoNumbers.add(4);
+			teamTwoNumbers.add(5);
+			teamTwoNumbers.add(6);
+			teamTwoNumbers.add(7);
+			teamTwoNumbers.add(8);
+			teamTwoNumbers.add(9);
+			teamTwoNumbers.add(10);
 		}
-
-				System.out.println(teamOneNumbers);
 		//generate a random number from 1-10
 		int goalGenerator = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 		//generate a random number to determine who scored
 		int scoringPlayer = ThreadLocalRandom.current().nextInt(0, 10 + 1);
 		//generate a team to score
-		int scoringTeam = ThreadLocalRandom.current().nextInt(0, 1 + 1);
+		int scoringTeam = ThreadLocalRandom.current().nextInt(1, 10 + 1);
+		int teamThatScored = 0;
 
 		//in each game there are 10 chances for a team to score a goal
-		for(int i = 0; i < 10; i++){
+		for(int i = 0; i < 20; i++){
 
+			if(teamOneNumbers.contains(scoringTeam)){
+				teamThatScored = 1;
+			}else{
+				teamThatScored = 2;
+			}
 			if(goalGenerator > 6){
 
 				if(scoringPlayer >= 7){
 
-					if(scoringTeam == 0){
+					if(teamThatScored == 1){
 						getGoalScorer(t1, 1);
 						teamOneGoals++;
 					}else{
@@ -59,7 +106,7 @@ public class Game{
 					}
 				}else if(scoringPlayer == 4 || scoringPlayer == 5 || scoringPlayer == 6){
 					
-					if(scoringTeam == 0){
+					if(teamThatScored == 1){
 						getGoalScorer(t1, 2);
 						teamOneGoals++;
 					}else{
@@ -68,7 +115,7 @@ public class Game{
 					}
 				}else if(scoringPlayer == 2 || scoringPlayer == 3){
 					
-					if(scoringTeam == 0){
+					if(teamThatScored == 1){
 						getGoalScorer(t1, 3);
 						teamOneGoals++;
 					}else{
@@ -77,7 +124,7 @@ public class Game{
 					}
 				}else if(scoringPlayer == 1){
 					
-					if(scoringTeam == 0){
+					if(teamThatScored == 1){
 						getGoalScorer(t1, 4);
 						teamOneGoals++;
 					}else{
@@ -85,7 +132,7 @@ public class Game{
 						teamTwoGoals++;
 					}
 				}else{
-					if(scoringTeam == 0){
+					if(teamThatScored == 1){
 						getGoalScorer(t1, 5);
 						teamOneGoals++;
 					}else{
@@ -93,9 +140,14 @@ public class Game{
 						teamTwoGoals++;
 					}
 				}
+				try{
+					Thread.sleep(1000);
+				}catch(InterruptedException e){
+					Thread.currentThread().interrupt();
+				}
 			}
 			//generate a new random number
-			scoringTeam = ThreadLocalRandom.current().nextInt(0, 1 + 1);
+			scoringTeam = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 			goalGenerator = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 			scoringPlayer = ThreadLocalRandom.current().nextInt(0, 10 + 1);
 		}
@@ -126,6 +178,8 @@ public class Game{
 	}
 	//given a line, randomly generate a player to score a goal
 	public void getGoalScorer(Team team, int line){
+
+		System.out.println("Team 1: " + team.getName());
 
 		int lineScorer = 0;
 
@@ -160,14 +214,31 @@ public class Game{
 		
 		//between -10 and +10: teams are equal - no buff for anyone
 		
-		//large buff for team 1
-		if(relativeStrength > 30){
+		//more negative team 2 better
+		//0 neutral
+		//more positive team 1 better
 
-
+		//team strength are close to eachother: no buff
+		if(relativeStrength <= 10 && relativeStrength >= -10){
+			return 0;
 		}
-		//between -10 and -30 or +10 and +30 - small buff for team 1 or 2 
-		// > -30 or > +30: large buff for team 1 or 2
-		return 2;
+		//small buff for team 1
+		if(relativeStrength >= 11 && relativeStrength <= 30){
+			return 1;
+		}
+		//large buff for team 1
+		if(relativeStrength > 31){
+			return 2;
+		}
+		//small buff for team 2
+		if(relativeStrength <= -11 && relativeStrength >= -30){
+			return -1;
+		}
+		//large buff for team 2
+		if(relativeStrength < -31){
+			return -2;
+		}
+		return 10;
 	}
 	//this function uses a hashmap to keep track of players who score goals
 	public void updateScorers(Object player){
@@ -176,6 +247,6 @@ public class Game{
 		//it does, add 1 to the key
 		playerGoals.merge(player, 1, Integer::sum);
 		
-		System.out.println(playerGoals);
+		//System.out.println(playerGoals);
 	}
 }
