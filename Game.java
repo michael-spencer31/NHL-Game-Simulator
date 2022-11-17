@@ -7,9 +7,6 @@ import java.util.ArrayList;
 
 public class Game{
 
-	//create a hashmap to keep track of player goals
-	public static HashMap<Object, Integer> playerGoals = new HashMap<Object, Integer>();
-
 	public void playGame(Team t1, Team t2){
 
 		var teamOneGoals = 0;
@@ -51,7 +48,7 @@ public class Game{
 			teamOneNumbers.add(5);
 			teamOneNumbers.add(6);
 			teamOneNumbers.add(7);
-			teamTwoNumbers.add(8);
+			teamOneNumbers.add(8);
 			teamTwoNumbers.add(9);
 			teamTwoNumbers.add(10);
 		}else if(advantageTeam == -1){
@@ -179,6 +176,8 @@ public class Game{
 	//given a line, randomly generate a player to score a goal
 	public void getGoalScorer(Team team, int line){
 
+		UpdateScorers goalUpdate = new UpdateScorers();
+
 		System.out.println("Team 1: " + team.getName());
 
 		int lineScorer = 0;
@@ -198,7 +197,7 @@ public class Game{
 
 		Object scorer = team.players[lineScorer][0];
 
-		updateScorers(scorer);
+		goalUpdate.updateGoals(scorer);
 	}
 	//this code tries to determine which team is stronger and gives them an advantage
 	public int getEdge(Team t1, Team t2){
@@ -208,15 +207,6 @@ public class Game{
 		int teamTwoStrength = t2.getStrength();
 
 		int relativeStrength = teamOneStrength - teamTwoStrength;
-
-		//if relative strength is POSITIVE team one is stronger
-		//if relative strength is NEGATIVE team two is stronger
-		
-		//between -10 and +10: teams are equal - no buff for anyone
-		
-		//more negative team 2 better
-		//0 neutral
-		//more positive team 1 better
 
 		//team strength are close to eachother: no buff
 		if(relativeStrength <= 10 && relativeStrength >= -10){
@@ -239,14 +229,5 @@ public class Game{
 			return -2;
 		}
 		return 10;
-	}
-	//this function uses a hashmap to keep track of players who score goals
-	public void updateScorers(Object player){
-
-		//this checks if the key already exists in the hashmap; if 
-		//it does, add 1 to the key
-		playerGoals.merge(player, 1, Integer::sum);
-		
-		//System.out.println(playerGoals);
 	}
 }

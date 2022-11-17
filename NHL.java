@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class NHL{
 
 	public static void main(String[] args){
@@ -46,13 +48,33 @@ public class NHL{
 		{"Chris Tanev", "D", 82, 2}, {"Nikita Zadorov", "D", 80, 3},
 		{"Nick Desimone", "D", 71, 3}, {"Jacob Markstrom", "G", 90, 1} };
 		
+		//a team with very bad players, for testing
+		//a "good" team should beat this team >90% of the team
+		Object[][] badPlayers = { {"Ryan Reynolds", "F", 1, 1},
+		{"Harry Potter", "F", 3, 1}, {"Emma Turner", "F", 3, 1},
+		{"Luna Lovegood", "F", 7, 2}, {"Homer Simpson", "F", 0, 2},
+		{"Lisa Simpson", "F", 1, 2}, {"Hermione Granger", "F", 10, 3},
+		{"Ron Weasley", "F", 5, 3}, {"Ginny Weasley", "F", 11, 3},
+		{"Draco Malfoy", "F", 1, 4}, {"Neville Longbottom", "F", 1, 4},
+		{"Lord Voldemort", "F", 13, 4}, {"Kelsea Ballerini", "D", 1, 1},
+		{"Bart Simpson", "D", 14, 1}, {"Ariadna Seyfried", "D", 3, 2},
+		{"Fallon Hanson", "D", 12, 2}, {"Sierra Hunter", "D", 17, 3},
+		{"Abbie Haynes", "D", 1, 3}, {"Jess Trafton", "G", 1, 1} };
+
 		//create a couple of teams 
-		Team MontrealCanadiens = new Team("Montreal Canadiens", montrealPlayers);
-		Team EdmontonOilers = new Team("Edmonton Oilers", edmontonPlayers);
-		Team TorontoMapleLeafs = new Team("Toronto Maple Leafs", torontoPlayers);
-		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers);
+		Team MontrealCanadiens = new Team("Montreal Canadiens", montrealPlayers, 0, 0, 0);
+		Team EdmontonOilers = new Team("Edmonton Oilers", edmontonPlayers, 0, 0, 0);
+		Team TorontoMapleLeafs = new Team("Toronto Maple Leafs", torontoPlayers, 0, 0, 0);
+		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers, 0, 0, 0);
+		Team BadTeam = new Team("Bad Team", badPlayers, 0, 0, 0);
 
 		Game game = new Game();
-		game.playGame(MontrealCanadiens, EdmontonOilers);
+		game.playGame(MontrealCanadiens, TorontoMapleLeafs);
+
+		ArrayList<Team> teamList = new ArrayList<Team>();
+		teamList.add(MontrealCanadiens);
+		teamList.add(TorontoMapleLeafs);
+
+		Standings teamStandings = new Standings(teamList);
 	}
 }
