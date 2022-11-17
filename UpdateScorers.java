@@ -29,4 +29,8 @@ public class UpdateScorers{
 			return;
 		}
 	}
+	//this function finds the player with the most goals 
+	public void getRocketTrophy(){
+
+	}
 }

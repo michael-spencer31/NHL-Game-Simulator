@@ -157,10 +157,12 @@ public class Game{
 			if(otWinner == 0){
 				teamOneGoals++;
 				getGoalScorer(t1, otPlayer);
+				t1.winGame();
 				System.out.println(t1.getName() + " beat the " + t2.getName() + " " + teamOneGoals + "-" + teamTwoGoals + " in overtime");
 				return;
 			}else{
 				teamTwoGoals++;
+				t2.winGame();
 				getGoalScorer(t2, otPlayer);
 				System.out.println(t2.getName() + " beat the " + t1.getName() + " " + teamTwoGoals + "-" + teamOneGoals + " in overtime");
 				return;
@@ -168,10 +170,13 @@ public class Game{
 		}
 		//otherwise the game ended in regulation time
 		if(teamOneGoals > teamTwoGoals){
+			t1.winGame();
 			System.out.println(t1.getName() + " beat the " + t2.getName() + " " + teamOneGoals + "-" + teamTwoGoals);
 		}else{
+			t2.winGame();
 			System.out.println(t2.getName() + " beat the " + t1.getName() + " " + teamTwoGoals + "-" + teamOneGoals);
 		}
+		
 	}
 	//given a line, randomly generate a player to score a goal
 	public void getGoalScorer(Team team, int line){

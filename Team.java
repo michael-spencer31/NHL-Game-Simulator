@@ -39,4 +39,10 @@ public class Team{
 	public int getPoints(){
 		return (wins * 2) + overtime;
 	}
+	public void winGame(){
+		wins++;
+	}
+	public static void sort(ArrayList<Team> team){
+		
+	}
 }
