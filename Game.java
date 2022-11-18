@@ -137,11 +137,14 @@ public class Game{
 						teamTwoGoals++;
 					}
 				}
+				/**
+				 * this code slows down the printing of things to make it easier to read
 				try{
 					Thread.sleep(1000);
 				}catch(InterruptedException e){
 					Thread.currentThread().interrupt();
 				}
+				*/
 			}
 			//generate a new random number
 			scoringTeam = ThreadLocalRandom.current().nextInt(1, 10 + 1);
@@ -203,7 +206,9 @@ public class Game{
 		}else{
 			lineScorer = ThreadLocalRandom.current().nextInt(12, 17 + 1);
 		}
-		System.out.println(team.players[lineScorer][0]);
+		
+		//uncomment this line to see who scored each goal
+		//System.out.println(team.players[lineScorer][0]);
 
 		int lineScorerHolder = lineScorer;
 		int lowHolder = lineScorer - 1;
@@ -211,13 +216,13 @@ public class Game{
 
 		if(numberOfAssists == 1){
 
-			firstAssist = ThreadLocalRandom.current().nextInt(0, 18 + 1);
+			firstAssist = ThreadLocalRandom.current().nextInt(0, 17 + 1);
 
 			if(firstAssist == lineScorer){
 
-				firstAssist = 19;
+				firstAssist = 18;
 			}
-			System.out.println("Assisted by: " + team.players[firstAssist][0]);
+			//System.out.println("Assisted by: " + team.players[firstAssist][0]);
 			goalUpdate.updateAssists((String)team.players[firstAssist][0]);
 		}else if(numberOfAssists == 2){
 
@@ -230,11 +235,11 @@ public class Game{
 			}else if(secondAssist == lineScorer){
 				secondAssist = 18;
 			}
-			System.out.println("Assisted by: " + team.players[firstAssist][0] + " and " + team.players[secondAssist][0]);
+			//System.out.println("Assisted by: " + team.players[firstAssist][0] + " and " + team.players[secondAssist][0]);
 			goalUpdate.updateAssists((String)team.players[firstAssist][0]);
 			goalUpdate.updateAssists((String)team.players[secondAssist][0]);
 		}else if(numberOfAssists == 0){
-			System.out.println("No assists");
+			//System.out.println("No assists");
 		}
 
 		Object scorer = team.players[lineScorer][0];

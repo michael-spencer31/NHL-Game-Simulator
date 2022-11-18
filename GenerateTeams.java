@@ -84,12 +84,24 @@ public class GenerateTeams{
 		{"Fallon Hanson", "D", 12, 2}, {"Sierra Hunter", "D", 17, 3},
 		{"Abbie Haynes", "D", 1, 3}, {"Jess Trafton", "G", 1, 1} };
 
+		Object[][] carolinaHurricanes = { {"Stefan Noesen", "F", 88, 1},
+		{"Sebastian Aho", "F", 93, 1}, {"Martin Necas", "F", 88, 1},
+		{"Andrei Svechnikov", "F", 94, 2}, {"Jesperi Kotkaniemi", "F", 81, 2},
+		{"Seth Jarvis", "F", 83, 2}, {"Jordan Martinook", "F", 83, 3},
+		{"Jordan Staal", "F", 81, 3}, {"Jesper Fast", "F", 81, 3},
+		{"Jack Drury", "F", 76, 4}, {"Paul Stastny", "F", 81, 4},
+		{"Derek Stephan", "F", 74, 4}, {"Jacob Slavin", "D", 88, 1},
+		{"Brent Burns", "D", 84, 1}, {"Brady Skjei", "D", 83, 2},
+		{"Brett Pesce", "D", 79, 2}, {"Maxime Lajoie", "D", 77, 3},
+		{"Jalen Chatfield", "D", 77, 3}, {"Antti Raanta", "G", 89, 1} };
+
 		//create a couple of teams 
 		Team SeattleKraken = new Team("Seattle Kraken", seattlePlayers, 0, 0, 0);
 		Team MontrealCanadiens = new Team("Montreal Canadiens", montrealPlayers, 0, 0, 0);
 		Team EdmontonOilers = new Team("Edmonton Oilers", edmontonPlayers, 0, 0, 0);
 		Team TorontoMapleLeafs = new Team("Toronto Maple Leafs", torontoPlayers, 0, 0, 0);
 		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers, 0, 0, 0);
+		Team CarolinaHurricanes = new Team("Carolina Hurricanes", carolinaHurricanes, 0, 0, 0);
 		Team OttawaSenators = new Team("Ottawa Senators", ottawaPlayers, 0, 0, 0);
 		Team BadTeam = new Team("Bad Team", badPlayers, 0, 0, 0);
 
@@ -99,7 +111,8 @@ public class GenerateTeams{
 		teamList.add(EdmontonOilers);
 		teamList.add(CalgaryFlames);
 		teamList.add(OttawaSenators);
-
+		teamList.add(CarolinaHurricanes);
+		
 		return teamList;
 	}
 }

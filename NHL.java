@@ -4,6 +4,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.io.File;
 import java.util.HashMap;
 import java.util.ArrayList;
+
+@SuppressWarnings("unchecked")
+
 public class NHL{
 
 	public static void main(String[] args){
@@ -14,8 +17,8 @@ public class NHL{
 
 		ArrayList<Team> teams = teamGenerator.buildTeams();
 
-		game.playGame(teams.get(0), teams.get(1));
-		game.playGame(teams.get(0), teams.get(4));
+		Schedule scheduleMaker = new Schedule();
+		scheduleMaker.createSchedule(teams);
 
 		UpdateScorers scoreTracker = new UpdateScorers();
 
@@ -23,5 +26,8 @@ public class NHL{
 
 		Trophies trophyPicker = new Trophies();
 		trophyPicker.getRocketTrophy(goalList);
+
+		Standings standings = new Standings(teams);
+		standings.printStandings();
 	}
 }

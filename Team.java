@@ -32,7 +32,6 @@ public class Team{
 				}
 			}
 		}
-		System.out.println(strength);
 		return strength;
 	}
 	//calculate and return the number of points a team has

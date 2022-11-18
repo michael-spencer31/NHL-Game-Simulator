@@ -33,4 +33,19 @@ public class Trophies{
 		}
 		System.out.println(keys + " " + maxGoals);	
 	}
+	//this function is the same as above except it gets assists instead of goals
+	public void getMostPoints(HashMap<String, Integer> playerAssists){
+
+		int maxAssists = Collections.max(playerAssists.values());
+
+		List<String> keys = new ArrayList<>();
+
+		for(Entry<String, Integer> entry: playerAssists.entrySet()){
+
+			if(entry.getValue() == maxAssists){
+
+				keys.add(entry.getKey());
+			}
+		}
+	}
 }

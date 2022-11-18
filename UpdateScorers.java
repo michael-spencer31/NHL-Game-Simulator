@@ -25,4 +25,7 @@ public class UpdateScorers{
 	public HashMap<String, Integer> getPlayerGoals(){
 		return playerGoals;
 	}
+	public HashMap<String, Integer> getPlayerAssists(){
+		return playerAssists;
+	}
 }
