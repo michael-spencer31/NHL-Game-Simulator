@@ -183,7 +183,12 @@ public class Game{
 
 		UpdateScorers goalUpdate = new UpdateScorers();
 
-		System.out.println("Team 1: " + team.getName());
+		//determine how many assists occured on a goal
+		int numberOfAssists = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+		int forwardordefense = ThreadLocalRandom.current().nextInt(0, 1 + 1);
+
+		int firstAssist = 0;
+		int secondAssist = 0;
 
 		int lineScorer = 0;
 
@@ -200,9 +205,44 @@ public class Game{
 		}
 		System.out.println(team.players[lineScorer][0]);
 
+		int lineScorerHolder = lineScorer;
+		int lowHolder = lineScorer - 1;
+		int highHolder = lineScorer + 2;
+
+		if(numberOfAssists == 1){
+
+			firstAssist = ThreadLocalRandom.current().nextInt(0, 18 + 1);
+
+			if(firstAssist == lineScorer){
+
+				firstAssist = 19;
+			}
+			System.out.println("Assisted by: " + team.players[firstAssist][0]);
+			goalUpdate.updateAssists((String)team.players[firstAssist][0]);
+		}else if(numberOfAssists == 2){
+
+			firstAssist = ThreadLocalRandom.current().nextInt(0, 7 + 1);
+			secondAssist = ThreadLocalRandom.current().nextInt(8, 15 + 1);
+
+			if(firstAssist == lineScorer){
+
+				firstAssist = 17;
+			}else if(secondAssist == lineScorer){
+				secondAssist = 18;
+			}
+			System.out.println("Assisted by: " + team.players[firstAssist][0] + " and " + team.players[secondAssist][0]);
+			goalUpdate.updateAssists((String)team.players[firstAssist][0]);
+			goalUpdate.updateAssists((String)team.players[secondAssist][0]);
+		}else if(numberOfAssists == 0){
+			System.out.println("No assists");
+		}
+
 		Object scorer = team.players[lineScorer][0];
 
-		goalUpdate.updateGoals(scorer);
+		//cast the player to a string to put into a hashmap later
+		String stringPlayer = (String)scorer;
+
+		goalUpdate.updateGoals(stringPlayer);
 	}
 	//this code tries to determine which team is stronger and gives them an advantage
 	public int getEdge(Team t1, Team t2){
