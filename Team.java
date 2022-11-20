@@ -41,7 +41,7 @@ public class Team{
 	public void winGame(){
 		wins++;
 	}
-	public static void sort(ArrayList<Team> team){
-		
+	public void overtimeLoss(){
+		overtime++;
 	}
 }

@@ -7,21 +7,17 @@ import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
 
-public class NHL{
+public class GamePlayer{
 
-	public static void main(String[] args){
-		
-		Game game = new Game();
-
-
-		/**
+	//this will start and simulate a full season
+	public void startSeason(){
 
 		GenerateTeams teamGenerator = new GenerateTeams();
 
-		ArrayList<Team> teams = teamGenerator.buildTeams();
+		ArrayList<Team> teamList = teamGenerator.buildTeams();
 
 		Schedule scheduleMaker = new Schedule();
-		scheduleMaker.createSchedule(teams);
+		scheduleMaker.createSchedule(teamList);
 
 		UpdateScorers scoreTracker = new UpdateScorers();
 
@@ -29,14 +25,14 @@ public class NHL{
 
 		Trophies trophyPicker = new Trophies();
 		trophyPicker.getRocketTrophy(goalList);
-		trophyPicker.getPresidentsTrophy(teams);
+		trophyPicker.getPresidentsTrophy(teamList);
 
-		Standings standings = new Standings(teams);
+		Standings standings = new Standings(teamList);
 		standings.printStandings();
+	}
+	//this function will start and simulate a single game
+	public void playSingleGame(Team t1, Team t2){
 
-		*/
-
-		NHLGUI gui = new NHLGUI();
-		gui.createGUI();
+		Game game = new Game();
 	}
 }

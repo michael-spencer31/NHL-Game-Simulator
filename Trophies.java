@@ -48,4 +48,15 @@ public class Trophies{
 			}
 		}
 	}
+	//trophy given to the team with the most points at the end of the season
+	public void getPresidentsTrophy(ArrayList<Team> teams){
+
+		Standings standings = new Standings(teams);
+
+		standings.sort(teams);
+
+		int size = teams.size() - 1;
+
+		System.out.println(teams.get(size).getName() + " win the Presidents Trophy");
+	}
 }

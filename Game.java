@@ -5,6 +5,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+@SuppressWarnings("unchecked")
+
 public class Game{
 
 	public void playGame(Team t1, Team t2){
@@ -161,11 +163,13 @@ public class Game{
 				teamOneGoals++;
 				getGoalScorer(t1, otPlayer);
 				t1.winGame();
+				t2.overtimeLoss();
 				System.out.println(t1.getName() + " beat the " + t2.getName() + " " + teamOneGoals + "-" + teamTwoGoals + " in overtime");
 				return;
 			}else{
 				teamTwoGoals++;
 				t2.winGame();
+				t1.overtimeLoss();
 				getGoalScorer(t2, otPlayer);
 				System.out.println(t2.getName() + " beat the " + t1.getName() + " " + teamTwoGoals + "-" + teamOneGoals + " in overtime");
 				return;
