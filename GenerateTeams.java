@@ -95,6 +95,26 @@ public class GenerateTeams{
 		{"Brett Pesce", "D", 79, 2}, {"Maxime Lajoie", "D", 77, 3},
 		{"Jalen Chatfield", "D", 77, 3}, {"Antti Raanta", "G", 89, 1} };
 
+		Object[][] bostonBruins = { {"Brad Marchand", "F", 90, 1},
+		{"Patrice Bergeron", "F", 92, 1}, {"David Pastrnak", "F", 88, 1},
+		{"Taylor Hall", "F", 86, 2}, {"David Krejci", "F", 84, 2},
+		{"Jake Debrusk", "F", 81, 2}, {"Trent Frederic", "F", 81, 3},
+		{"Charlie Coyle", "F", 79, 3}, {"Paul Zacha", "F", 81, 3},
+		{"Nick Foligno", "F", 77, 4}, {"Tomas Nosek", "F", 77, 4},
+		{"A.J. Greer", "F", 73, 4}, {"Matt Grzelcky", "D", 87, 1},
+		{"Charlie Mcavoy", "D", 89, 1}, {"Hampus Lindholm", "D", 85, 2},
+		{"Connor Clifton", "D", 81, 2}, {"Anton Stralman", "D", 77, 3},
+		{"Brandon Carlo", "D", 72, 3}, {"Jeremy Swayman", "G", 88, 1} };
+
+		Object[][] vegasKnights = { {"Chandler Stephenson", "F", 91, 1},
+		{"Jack Eichel", "F", 94, 1}, {"Mark Stone", "F", 95, 1},
+		{"Jonathan Marchessault", "F", 88, 2}, {"William Karlsson", "F", 85, 2},
+		{"Reilly Smith", "F", 84, 2}, {"Paul Cotter", "F", 83, 3}, {"Mike Amadio", "F", 83, 3},
+		{"Phil Kessel", "F", 83, 3}, {"Will Carrier", "F", 79, 4}, {"Brett Howden", "F", 78, 4},
+		{"Keegan Kolesar", "F", 77, 4}, {"Alec Martinez", "D", 88, 1},
+		{"Alex Pietrangelo", "D", 88, 1}, {"Brayden Mcnabb", "D", 85, 2},
+		{"Shea Theodore", "D", 83, 2}, {"Nicolas Hague", "D", 84, 3},
+		{"Zach Whitecloud", "D", 77, 3}, {"Adin Hill", "G", 88, 1} };
 		//create a couple of teams 
 		Team SeattleKraken = new Team("Seattle Kraken", seattlePlayers, 0, 0, 0);
 		Team MontrealCanadiens = new Team("Montreal Canadiens", montrealPlayers, 0, 0, 0);
@@ -103,6 +123,8 @@ public class GenerateTeams{
 		Team CalgaryFlames = new Team("Calgary Flames", calgaryPlayers, 0, 0, 0);
 		Team CarolinaHurricanes = new Team("Carolina Hurricanes", carolinaHurricanes, 0, 0, 0);
 		Team OttawaSenators = new Team("Ottawa Senators", ottawaPlayers, 0, 0, 0);
+		Team BostonBruins = new Team("Boston Bruins", bostonBruins, 0, 0, 0);
+		Team VegasKnights = new Team("Vegas Golden Knights", vegasKnights, 0, 0, 0);
 		Team BadTeam = new Team("Bad Team", badPlayers, 0, 0, 0);
 
 		teamList.add(MontrealCanadiens);
@@ -112,6 +134,8 @@ public class GenerateTeams{
 		teamList.add(CalgaryFlames);
 		teamList.add(OttawaSenators);
 		teamList.add(CarolinaHurricanes);
+		teamList.add(VegasKnights);
+		teamList.add(BostonBruins);
 		
 		return teamList;
 	}

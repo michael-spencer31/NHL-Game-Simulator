@@ -84,7 +84,7 @@ public class Game{
 		int scoringTeam = ThreadLocalRandom.current().nextInt(1, 10 + 1);
 		int teamThatScored = 0;
 
-		//in each game there are 10 chances for a team to score a goal
+		//in each game there are 20 chances for a team to score a goal
 		for(int i = 0; i < 20; i++){
 
 			if(teamOneNumbers.contains(scoringTeam)){

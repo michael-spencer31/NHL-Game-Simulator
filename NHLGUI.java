@@ -12,21 +12,40 @@ class NHLGUI extends JFrame implements ActionListener{
 	private static JButton label2;
 	private static JButton label3;
 	private static JButton label4;
+	private static JButton label5;
+	private static JButton label6;
+	private static JButton label7;
+	private static JButton label8;
 
 	public void createGUI(){
 
 		teamPanel = new JPanel();
-		teamPanel.setLayout(new GridLayout(2, 2, 10, 10));
+		teamPanel.setLayout(new GridLayout(2, 4, 10, 10));
+
+		String s = "label";
+
+		for(int i = 1; i < 6; i++){
+
+
+		}
 
 		label1 = new JButton();
 		label2 = new JButton();
 		label3 = new JButton();
 		label4 = new JButton();
+		label5 = new JButton();
+		label6 = new JButton();
+		label7 = new JButton();
+		label8 = new JButton();
 
 		label1.addActionListener(this);
 		label2.addActionListener(this);
 		label3.addActionListener(this);
 		label4.addActionListener(this);
+		label5.addActionListener(this);
+		label6.addActionListener(this);
+		label7.addActionListener(this);
+		label8.addActionListener(this);
 
 		ImageIcon imageIcon1 = new ImageIcon(new ImageIcon("assests/images/emma.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label1.setIcon(imageIcon1);
@@ -40,12 +59,28 @@ class NHLGUI extends JFrame implements ActionListener{
 		ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("assests/images/aidan.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label4.setIcon(imageIcon4);
 
+		ImageIcon imageIcon5 = new ImageIcon(new ImageIcon("assests/images/elise.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		label5.setIcon(imageIcon5);
+
+		ImageIcon imageIcon6 = new ImageIcon(new ImageIcon("assests/images/sierra.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		label6.setIcon(imageIcon6);
+
+		ImageIcon imageIcon7 = new ImageIcon(new ImageIcon("assests/images/eefje.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		label7.setIcon(imageIcon7);
+
+		ImageIcon imageIcon8 = new ImageIcon(new ImageIcon("assests/images/kelsey.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		label8.setIcon(imageIcon8);
+
 		frame = new JFrame("Test");
 
 		teamPanel.add(label1);
 		teamPanel.add(label2);
 		teamPanel.add(label3);
 		teamPanel.add(label4);
+		teamPanel.add(label5);
+		teamPanel.add(label6);
+		teamPanel.add(label7);
+		teamPanel.add(label8);
 
 		frame.setContentPane(teamPanel);
 
