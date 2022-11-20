@@ -28,16 +28,16 @@ class NHLGUI extends JFrame implements ActionListener{
 		label3.addActionListener(this);
 		label4.addActionListener(this);
 
-		ImageIcon imageIcon1 = new ImageIcon(new ImageIcon("emma.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		ImageIcon imageIcon1 = new ImageIcon(new ImageIcon("assests/images/emma.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label1.setIcon(imageIcon1);
 
-		ImageIcon imageIcon2 = new ImageIcon(new ImageIcon("cait.jpeg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		ImageIcon imageIcon2 = new ImageIcon(new ImageIcon("assests/images/cait.jpeg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label2.setIcon(imageIcon2);
 
-		ImageIcon imageIcon3 = new ImageIcon(new ImageIcon("shawne.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		ImageIcon imageIcon3 = new ImageIcon(new ImageIcon("assests/images/shawne.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label3.setIcon(imageIcon3);
 
-		ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("aidan.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("assests/images/aidan.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		label4.setIcon(imageIcon4);
 
 		frame = new JFrame("Test");
