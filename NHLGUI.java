@@ -8,6 +8,7 @@ class NHLGUI extends JFrame implements ActionListener{
 
 	private static JFrame frame;
 	private static JPanel teamPanel;
+	private static JPanel scoresPanel;
 	private static JButton label1;
 	private static JButton label2;
 	private static JButton label3;
@@ -16,11 +17,14 @@ class NHLGUI extends JFrame implements ActionListener{
 	private static JButton label6;
 	private static JButton label7;
 	private static JButton label8;
+	private static JLabel scoresLabel;
 
 	public void createGUI(){
 
 		teamPanel = new JPanel();
 		teamPanel.setLayout(new GridLayout(2, 4, 10, 10));
+
+		scoresPanel = new JPanel();
 
 		String s = "label";
 
@@ -37,6 +41,9 @@ class NHLGUI extends JFrame implements ActionListener{
 		label6 = new JButton();
 		label7 = new JButton();
 		label8 = new JButton();
+
+		scoresLabel = new JLabel();
+		scoresPanel.add(scoresLabel);
 
 		label1.addActionListener(this);
 		label2.addActionListener(this);
@@ -83,7 +90,6 @@ class NHLGUI extends JFrame implements ActionListener{
 		teamPanel.add(label8);
 
 		frame.setContentPane(teamPanel);
-
 
 		frame.setSize(500, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
