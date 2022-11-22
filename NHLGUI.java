@@ -10,14 +10,14 @@ class NHLGUI extends JFrame implements ActionListener{
 	private static JFrame frame;
 	private static JPanel teamPanel;
 	private static JPanel scoresPanel;
-	private static JButton label1;
-	private static JButton label2;
-	private static JButton label3;
-	private static JButton label4;
-	private static JButton label5;
+	private static JButton MontrealCanadiens;
+	private static JButton OttawaSenators;
+	private static JButton CarolinaHurricanes;
+	private static JButton VegasGoldenKnights;
+	private static JButton SeattleKraken;
 	private static JButton WinnipegJets;
 	private static JButton EdmontonOilers;
-	private static JButton label8;
+	private static JButton TorontoMapleLeafs;
 	private static JLabel scoresLabel;
 	private static JPanel infoPanel;
 	private static JFrame mainFrame;
@@ -35,68 +35,68 @@ class NHLGUI extends JFrame implements ActionListener{
 		scoresPanel = new JPanel();
 		scoresLabel = new JLabel();
 
-		scoresLabel.setText("Click on 2 buttons to start a game");
+		scoresLabel.setText("Click on 2 teams to start a game");
 		infoPanel.add(scoresLabel);
 
-		label1 = new JButton();
-		label2 = new JButton();
-		label3 = new JButton();
-		label4 = new JButton();
-		label5 = new JButton();
+		MontrealCanadiens = new JButton();
+		OttawaSenators = new JButton();
+		CarolinaHurricanes = new JButton();
+		VegasGoldenKnights = new JButton();
+		SeattleKraken = new JButton();
 		WinnipegJets = new JButton();
 		EdmontonOilers = new JButton();
-		label8 = new JButton();
+		TorontoMapleLeafs = new JButton();
 
-		label1.addActionListener(this);
-		label2.addActionListener(this);
-		label3.addActionListener(this);
-		label4.addActionListener(this);
-		label5.addActionListener(this);
+		MontrealCanadiens.addActionListener(this);
+		OttawaSenators.addActionListener(this);
+		CarolinaHurricanes.addActionListener(this);
+		VegasGoldenKnights.addActionListener(this);
+		SeattleKraken.addActionListener(this);
 		WinnipegJets.addActionListener(this);
 		EdmontonOilers.addActionListener(this);
-		label8.addActionListener(this);
+		TorontoMapleLeafs.addActionListener(this);
 
-		ImageIcon imageIcon1 = new ImageIcon(new ImageIcon("assests/images/emma.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label1.setIcon(imageIcon1);
+		ImageIcon imageIcon1 = new ImageIcon(new ImageIcon("assests/Logos/Montreal Canadiens.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		MontrealCanadiens.setIcon(imageIcon1);
 
-		ImageIcon imageIcon2 = new ImageIcon(new ImageIcon("assests/images/cait.jpeg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label2.setIcon(imageIcon2);
+		ImageIcon imageIcon2 = new ImageIcon(new ImageIcon("assests/Logos/Ottawa Senators.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		OttawaSenators.setIcon(imageIcon2);
 
-		ImageIcon imageIcon3 = new ImageIcon(new ImageIcon("assests/images/shawne.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label3.setIcon(imageIcon3);
+		ImageIcon imageIcon3 = new ImageIcon(new ImageIcon("assests/Logos/Carolina Hurricanes.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		CarolinaHurricanes.setIcon(imageIcon3);
 
-		ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("assests/images/aidan.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label4.setIcon(imageIcon4);
+		ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("assests/Logos/Vegas Golden Knights.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		VegasGoldenKnights.setIcon(imageIcon4);
 
-		ImageIcon imageIcon5 = new ImageIcon(new ImageIcon("assests/images/elise.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label5.setIcon(imageIcon5);
+		ImageIcon imageIcon5 = new ImageIcon(new ImageIcon("assests/Logos/Seattle Kraken.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		SeattleKraken.setIcon(imageIcon5);
 
-		ImageIcon imageIcon6 = new ImageIcon(new ImageIcon("assests/images/sierra.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		ImageIcon imageIcon6 = new ImageIcon(new ImageIcon("assests/Logos/Winnipeg Jets.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		WinnipegJets.setIcon(imageIcon6);
 
 		ImageIcon imageIcon7 = new ImageIcon(new ImageIcon("assests/Logos/Edmonton Oilers.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		EdmontonOilers.setIcon(imageIcon7);
 
-		ImageIcon imageIcon8 = new ImageIcon(new ImageIcon("assests/images/kelsey.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-		label8.setIcon(imageIcon8);
+		ImageIcon imageIcon8 = new ImageIcon(new ImageIcon("assests/Logos/Toronto Maple Leafs.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+		TorontoMapleLeafs.setIcon(imageIcon8);
 
 		frame = new JFrame("Test");
 
-		teamPanel.add(label1);
-		teamPanel.add(label2);
-		teamPanel.add(label3);
-		teamPanel.add(label4);
-		teamPanel.add(label5);
+		teamPanel.add(MontrealCanadiens);
+		teamPanel.add(OttawaSenators);
+		teamPanel.add(CarolinaHurricanes);
+		teamPanel.add(VegasGoldenKnights);
+		teamPanel.add(SeattleKraken);
 		teamPanel.add(WinnipegJets);
 		teamPanel.add(EdmontonOilers);
-		teamPanel.add(label8);
+		teamPanel.add(TorontoMapleLeafs);
 
 		mainFrame.add(teamPanel, BorderLayout.NORTH);
 		mainFrame.add(infoPanel, BorderLayout.SOUTH);
 
-		mainFrame.setSize(500, 500);
+		mainFrame.setSize(750, 500);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setTitle("NHL");
+		mainFrame.setTitle("NHL Game Simulator");
 		mainFrame.setLocationRelativeTo(null);
 
 		mainFrame.setVisible(true);
@@ -111,14 +111,23 @@ class NHLGUI extends JFrame implements ActionListener{
 			teamList.add("Edmonton Oilers");
 		}else if(e.getSource() == WinnipegJets){
 			teamList.add("Winnipeg Jets");
-
+		}else if(e.getSource() == SeattleKraken){
+			teamList.add("Seattle Kraken");
+		}else if(e.getSource() == VegasGoldenKnights){
+			teamList.add("Vegas Golden Knights");
+		}else if(e.getSource() == TorontoMapleLeafs){
+			teamList.add("Toronto Maple Leafs");
+		}else if(e.getSource() == CarolinaHurricanes){
+			teamList.add("Carolina Hurricanes");
+		}else if(e.getSource() == OttawaSenators){
+			teamList.add("Ottawa Senators");
+		}else if(e.getSource() == MontrealCanadiens){
+			teamList.add("Montreal Canadiens");
 		}
-		System.out.println(teamList.size());
 		count++;
 
-		if(teamList.size() == 2){
-			System.out.println("Two teams picked");
-			gp.playSingleGame(teamList);
+		if(teamList.size() % 2 == 0){
+			gp.playSingleGame(teamList, count);
 		}
 	}
 }

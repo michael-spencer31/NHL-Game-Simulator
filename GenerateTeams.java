@@ -4,6 +4,9 @@ public class GenerateTeams{
 
 	public ArrayList<Team> buildTeams(){
 
+		//this class is used to create and populate an arraylist
+		//of teams
+
 		ArrayList<Team> teamList = new ArrayList<Team>();
 
 		Object[][] montrealPlayers = { {"Nick Suzuki", "F", 88, 1},
